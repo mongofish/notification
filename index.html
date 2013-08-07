@@ -4,41 +4,19 @@
       <title>{{ title }}</title>
       <link rel='stylesheet' href='/css/style.css' />
       <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>      
+      <script src="/bootstrap/js/bootstrap.js"></script>
       <script src="/js/angular/angular.min.js"></script>
-      <script src="/js/notifyCtrl.js"></script>
+      <script src="/js/indexCtrl.js"></script>
     </head>
-    <body>
-    <div class="container">
-        <div class="row" ng-controller="NotifyCtrl">
-            <div class="span8">
-                <form ng-submit="processForm(item)">
-                    <fieldset>
-                        <legend>Notification</legend>
-                        <div>
-                            <label>Title</label>
-                            <input ng-model="item.title" required class="input-xxlarge" type="text" placeholder="Put the title here...">  
-                            <span class="error" ng-show="item.title.$error.required">Required!</span>                    
-                        </div>
-                        <div>
-                            <label>Text</label>
-                            <textarea ng-model="item.body" required class="input-xxlarge" rows="10" placeholder="Say something...."></textarea> 
-                            <span class="error" ng-show="item.body.$error.required">Required!</span> 
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-primary">{{button}}</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="span4">
-                <ul class="list">
-                  <li ng-repeat="entry in notifications">
-                    <h4>{{entry.title}}</h4>
-                    <p>{{entry.body}}</p>
-                  </li>
-                </ul>                    
-            </div>
-        </div> 
-    </div>    
+    <body ng-controller="IndexCtrl">
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li ng-repeat="tab in tabs" ng-class="{active: $index==tabs.selectedIdx}">
+                    <a href="#" ng-click="tabs.activate($index)">{{tab.title}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container" ng-include src="partial"></div>
     </body>
 </html>    

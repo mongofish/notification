@@ -1,0 +1,30 @@
+    <div class="row" ng-controller="NotifyCtrl">
+            <div class="span8">
+                <form ng-submit="processForm(item)">
+                    <fieldset>
+                        <legend>Notification</legend>
+                        <div>
+                            <label>Title</label>
+                            <input ng-model="item.title" required class="input-xxlarge" type="text" placeholder="Put the title here...">  
+                        </div>
+                        <div>
+                            <label>Text</label>
+                            <textarea ng-model="item.body" required class="input-xxlarge" rows="10" placeholder="Say something...."></textarea> 
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">{{button}}</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="span4">
+                <ul class="list">
+                  <li ng-repeat="entry in notifications">
+                    <h4>{{entry.title}}</h4>
+                    <p>{{entry.body}}</p>
+                  </li>
+                </ul>                    
+            </div>
+        </div>
+    </div>
+    <script src="/js/notifyCtrl.js"></script>
