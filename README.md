@@ -1,4 +1,4 @@
-notification
+Notification
 ============
 
-Notification with node and angular.js
+Playing with Angular.js with Parse acting as the back-end server.
