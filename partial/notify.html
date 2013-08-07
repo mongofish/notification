@@ -8,8 +8,12 @@
                             <input ng-model="item.title" required class="input-xxlarge" type="text" placeholder="Put the title here...">  
                         </div>
                         <div>
+                            <label>User</label>
+                            <select ng-model="item.user" required class="input-xxlarge" ng-options="u.objectId as u.username for u in users"></select>
+                        </div>
+                        <div>
                             <label>Text</label>
-                            <textarea ng-model="item.body" required class="input-xxlarge" rows="10" placeholder="Say something...."></textarea> 
+                            <textarea ui-tinymce ng-model="item.body" required class="input-xxlarge" rows="10" placeholder="Say something...."></textarea> 
                         </div>
                         <div>
                             <button type="submit" class="btn btn-primary">{{button}}</button>
@@ -18,8 +22,9 @@
                 </form>
             </div>
             <div class="span4">
+                <select ng-model="uf.user" ng-options="u.objectId as u.username for u in users"></select>
                 <ul class="list">
-                  <li ng-repeat="entry in notifications">
+                  <li ng-repeat="entry in notifications | filter:uf">
                     <h4>{{entry.title}}</h4>
                     <p>{{entry.body}}</p>
                   </li>

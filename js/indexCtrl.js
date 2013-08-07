@@ -1,7 +1,9 @@
 function IndexCtrl($scope, $http) {
     $scope.tabs = [
         {title: "Notify", partial:"/partial/notify.html"},    
-        {title: "User", partial:"/partial/user.html"} 
+        {title: "User", partial:"/partial/user.html"},
+        {title: "Another", partial:"/partial/notify.html"},  
+        {title: "More", partial:"/partial/notify.html"},  
     ];
     
     $scope.tabs.activate = function (idx) {

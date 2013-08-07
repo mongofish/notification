@@ -6,6 +6,11 @@ function NotifyCtrl($scope, $http) {
         $scope.notifications = data.results;
     });
   
+    $http.get('https://api.parse.com/1/users', config).success(function(data) {
+        console.log(data);
+        $scope.users = data.results;
+    });
+  
     $scope.processForm = function (item) {
         $scope.button = "Processing";
         console.log(item);
